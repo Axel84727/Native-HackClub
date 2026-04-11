@@ -52,26 +52,51 @@ Our mission is to teach 50 teenagers how to bypass the OS and the CPU to solve p
 5. Share your project and findings with the community.
 
 ## Repository structure
-docs/ - Documentation and guides
-- `docs/getting_started.md` - How to get started with hardware projects
-- `docs/fpga_basics.md` - Introduction to FPGAs and Verilog
-- `docs/verilog_cheetsheet.md` - Quick reference for Verilog syntax and constructs
-- `docs/hardware_safety.md` - Guidelines for working safely with hardware
+`docs/` - Documentation and guides
+- `docs/getting-started.md` - Install tools and run your first simulation
+- `docs/fpga-primer.md` - FPGA and Verilog fundamentals
+- `docs/verilog-cheatsheet.md` - Quick Verilog/SystemVerilog reference
+- `docs/hardware-safety.md` - Hardware safety checklist
 
-projects/ - Example projects and templates
-- `projects/_template/readme.md` - Template for new projects
-- `projects/_template/src/top.v` - Template Verilog file for FPGA projects
-- `projects/_template/testbench/tb_top.v` - Template testbench for simulation
-- `projects/_template/contraits.xdc` - Template constraints file for FPGA pin assignments
-- `projects/parallel_clock/` - Example project demonstrating a parallel clock design
+`projects/` - Example projects and templates
+- `projects/_template/README.md` - Project write-up template
+- `projects/_template/top.v` - Top-level Verilog template
+- `projects/_template/tb_top.v` - Testbench template
+- `projects/_template/constraints.xdc` - Basys3 constraints template
+- `projects/parallel-timer/` - Example project: independent hardware timers
 
-workshops/ - Workshop materials and exercises
--`workshops/01-blinking-led/` - Workshop on blinking LEDs with an FPGA
-- `workshops/02-seven-segment/` - Workshop on controlling a seven-segment display
-- `workshops/03-uart-communication/` - Workshop on UART communication between an FPGA and a microcontroller
-- `workshops/04-parallel-fsm/` - Workshop on designing a parallel finite state machine in Verilog
+`workshops/` - Workshop materials and exercises
+- `workshops/01-blink-led/` - Blink an LED with a cycle-accurate divider
+- `workshops/02-seven-segment/` - 7-segment decoding with combinational logic
+- `workshops/03-uart-comm/` - UART transmitter from scratch
+- `workshops/04-parallel-fsm/` - Two independent FSMs on one clock
 
-tools/ - Scripts and utilities for hardware development
-- `tools/setup.sh` - Script to set up the development environment
-- `tools/sim.sh` - Script to run simulations for Verilog projects
-- `tools/flash.sh` - Script to flash the FPGA with the compiled design
+`tools/` - Scripts and utilities for hardware development
+- `tools/setup.sh` - Install simulation dependencies
+- `tools/sim.sh` - Compile and run simulations
+- `tools/flash.sh` - Program bitfiles onto supported boards
+
+Here's the structure of the repo!
+```
+native-hackclub/
+├── docs/                     # Concepts, primers, references
+│   ├── getting-started.md    # Your first simulation in 10 minutes
+│   ├── fpga-primer.md        # What is an FPGA, really
+│   ├── verilog-cheatsheet.md # The stuff you'll look up every single time
+│   └── hardware-safety.md    # Please read this before touching the board
+│
+├── projects/                 # Student & example projects
+│   ├── _template/            # Copy this when starting a new project
+│   └── parallel-timer/       # Example: true parallel counters
+│
+├── workshops/                # Guided activities, 4 sessions
+│   ├── 01-blink-led/         # Hello World, but in hardware
+│   ├── 02-seven-segment/     # Combinational logic + displays
+│   ├── 03-uart-comm/         # Bit-exact serial communication
+│   └── 04-parallel-fsm/      # Two FSMs, one clock, zero compromises
+│
+└── tools/                    # Shell scripts so you don't have to type
+    ├── setup.sh              # Install everything
+    ├── sim.sh                # Compile & simulate a project
+    └── flash.sh              # Flash to real hardware
+```

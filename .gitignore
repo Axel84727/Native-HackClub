@@ -1,0 +1,107 @@
+# Native-HackClub .gitignore
+# If you're wondering why this file is so long, it's because
+# Vivado generates approximately one file per atom in the universe.
+
+# ─── Simulation outputs ────────────────────────────────────────────────────────
+# Waveform dumps — generated, not source. Don't commit these.
+# (A .vcd for a 1ms simulation can be 50MB. Don't be that person.)
+*.vcd
+*.ghw
+*.fst
+*.lxt
+*.lxt2
+*.vzt
+
+# Compiled simulation binaries
+*.vvp
+a.out
+sim.out
+
+# ─── Synthesis outputs ─────────────────────────────────────────────────────────
+# Bitfiles — the compiled hardware. Large, binary, regeneratable.
+*.bit
+*.bin
+*.mcs
+*.prm
+
+# ─── Vivado project garbage ────────────────────────────────────────────────────
+# Vivado creates a small city of files when you open a project.
+# None of them belong in git.
+*.runs/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.gen/
+*.sim/
+*.srcs/
+*.xpr
+*.jou
+*.log
+*.str
+*.debug_probes
+.Xil/
+vivado_*.backup.jou
+vivado_*.backup.log
+
+# ─── Quartus project garbage ───────────────────────────────────────────────────
+# Intel/Altera's answer to Vivado's mess. Different mess, same energy.
+*.qpf
+*.qsf
+*.qdf
+db/
+incremental_db/
+output_files/
+simulation/
+*.rpt
+*.summary
+*.done
+*.pin
+*.pof
+*.sof
+
+# ─── ModelSim / QuestaSim ──────────────────────────────────────────────────────
+work/
+transcript
+vsim.wlf
+*.wlf
+modelsim.ini
+
+# ─── OS noise ──────────────────────────────────────────────────────────────────
+# macOS thinks every folder needs a hidden file. It is wrong.
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows similarly cannot help itself
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux thumbnails (rare but they exist)
+.Trash-*
+.nfs*
+
+# ─── Editor configs ────────────────────────────────────────────────────────────
+# Your editor preferences are yours. Keep them local.
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+\#*\#
+.\#*
+
+# ─── Python (if you have any helper scripts) ───────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+
+# ─── What to KEEP ──────────────────────────────────────────────────────────────
+# In case you have a docs/ folder with generated waveform screenshots:
+# (PNGs are fine — they're small and humans can look at them)
+!docs/*.png
+!docs/*.jpg
+!docs/*.svg
